@@ -5,9 +5,12 @@ import (
 	"net/http"
 )
 
+const PORT = ":8008"
+
 func main() {
 	http.HandleFunc("/test", testHandler)
-	lstErr := http.ListenAndServe(":8008", nil)
+	log.Printf("http server started on: %v", PORT)
+	lstErr := http.ListenAndServe(PORT, nil)
 	log.Fatalf("failed to listen: %v", lstErr)
 }
 
